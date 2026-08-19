@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+body {
+  background-color: #090A0C;
+  color: #F0F6FC;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #060709;
+}
+::-webkit-scrollbar-thumb {
+  background: #232A35;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B4657;
+}
+
+/* 4x4 vector indicator */
+.vector-4x4 {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* Subtle grid line overlay */
+.bg-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(1000px circle at 50% -10%, rgba(0, 126, 239, 0.12), transparent 70%);
+}
+
+.glass-panel {
+  background: rgba(15, 18, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-box-cyan {
+  box-shadow: 0 0 50px -10px rgba(0, 126, 239, 0.25);
+}
+
+.glow-box-yellow {
+  box-shadow: 0 0 50px -10px rgba(253, 208, 123, 0.2);
+}
+
+/* Custom button styles following Anchor's exact aesthetic */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-[#F0F6FC] text-[#090A0C] font-mono text-[11px] font-semibold uppercase tracking-[0.08em] px-5 py-2.5 rounded-md hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] transition-all active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 bg-[#12151A] text-[#F0F6FC] border border-[#262E3B] font-mono text-[11px] font-medium uppercase tracking-[0.08em] px-5 py-2.5 rounded-md hover:bg-[#1A202A] hover:border-[#3E4A5E] transition-all active:scale-[0.98];
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-1.5 text-muted hover:text-white font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1.5 rounded transition-colors;
+}
+
+.c-tag {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#262E3B] bg-[#121519] font-mono text-[9px] uppercase tracking-[0.14em];
+}
