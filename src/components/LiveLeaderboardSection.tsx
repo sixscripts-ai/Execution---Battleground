@@ -16,7 +16,7 @@ export const LiveLeaderboardSection: React.FC = () => {
     if (selectedFormat === "bug" && model.primaryFormat.includes("Bug")) return true;
     if (selectedFormat === "speed" && model.primaryFormat.includes("Speed")) return true;
     return true;
-  });
+  }).sort((a, b) => b.elo - a.elo);
 
   return (
     <section id="leaderboard" className="relative border-b border-border bg-background py-16 md:py-24">
@@ -97,12 +97,21 @@ export const LiveLeaderboardSection: React.FC = () => {
                     <tr
                       key={model.id}
                       className="hover:bg-surface2/50 transition-colors group cursor-pointer"
+                      tabIndex={0}
+                      role="button"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          // Navigate to battle preview
+                          document.getElementById("battle-preview")?.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
                     >
                       {/* Rank */}
                       <td className="py-4 pl-6 pr-4 text-center font-mono font-bold">
-                        {idx === 0 && <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-accent-yellow/20 text-accent-yellow text-xs">1</span>}
-                        {idx === 1 && <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-400/20 text-gray-300 text-xs">2</span>}
-                        {idx === 2 && <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-amber-600/20 text-amber-500 text-xs">3</span>}
+                        {idx === 0 && <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-accent-yellow/20 text-accent-yellow text-xs">#1</span>}
+                        {idx === 1 && <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-400/20 text-gray-300 text-xs">#2</span>}
+                        {idx === 2 && <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-amber-600/20 text-amber-500 text-xs">#3</span>}
                         {idx > 2 && <span className="text-muted text-xs">#{idx + 1}</span>}
                       </td>
 

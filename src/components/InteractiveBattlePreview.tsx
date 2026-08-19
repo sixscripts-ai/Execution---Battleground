@@ -160,7 +160,7 @@ export const InteractiveBattlePreview: React.FC = () => {
           <div className="grid grid-cols-1 divide-y divide-border lg:grid-cols-2 lg:divide-x lg:divide-y-0">
             
             {/* Agent A: Claude 3.7 Sonnet (Builder) */}
-            <div className="flex flex-col h-[580px] bg-code">
+            <div className="flex flex-col h-[400px] lg:h-[580px] bg-code">
               
               {/* Agent A Header */}
               <div className="flex min-h-[56px] items-center justify-between border-b border-codeBorder bg-surface px-4 py-2.5">
@@ -328,7 +328,7 @@ export const InteractiveBattlePreview: React.FC = () => {
             </div>
 
             {/* Agent B: DeepSeek R1 (Breaker) */}
-            <div className="flex flex-col h-[580px] bg-code">
+            <div className="flex flex-col h-[400px] lg:h-[580px] bg-code">
               
               {/* Agent B Header */}
               <div className="flex min-h-[56px] items-center justify-between border-b border-codeBorder bg-surface px-4 py-2.5">
